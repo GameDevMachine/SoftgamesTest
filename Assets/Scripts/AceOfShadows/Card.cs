@@ -29,7 +29,7 @@ namespace AceOfShadows
             while (timer < moveTime)
             {
                 timer += Time.deltaTime;
-                transform.position = Vector3.Lerp(startPosition, position, timer / moveTime);
+                transform.position = Vector3.Lerp(startPosition, position, timer / moveTime); // TODO: Smooth damping
                 //spriteRenderer.sortingOrder = (int)Mathf.Round(Mathf.Lerp(startLayer, (float)layer, timer / moveTime)); // this lerps the layer through the stacks during movement which isnt ideal.
                 yield return null;
             }
