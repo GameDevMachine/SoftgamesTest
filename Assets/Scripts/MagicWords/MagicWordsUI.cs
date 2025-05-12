@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace MagicWords
 {
@@ -30,17 +31,18 @@ namespace MagicWords
             rightSpeaker.gameObject.SetActive(false);
         }
 
+        public void OnExitClicked()
+        {
+            SceneManager.LoadScene("MainMenu");
+        }
+
         static public void DisplayDialogue(DialogueLine dialogueLine, AvatarData avatar)
         {
-            // Display the dialogue line in the UI
-            Debug.Log($"Name: {dialogueLine.name}, Text: {dialogueLine.text}");
-
             instance.ResetUI();
-            if (avatar == null) return;
             if (dialogueLine == null) return;
 
             // Setup speaker
-            if (avatar.position == "left")
+            if (avatar == null || avatar.position == "left")
             {
                 instance.leftSpeaker.DisplayDialogue(dialogueLine, avatar);
             }
