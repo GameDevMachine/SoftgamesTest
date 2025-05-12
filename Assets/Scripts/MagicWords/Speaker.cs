@@ -23,7 +23,7 @@ namespace MagicWords
             { "{win}", "\U0001F60D" },
         };
 
-        public void DisplayDialogue(DialogueLine dialogueLine, AvatarData avatar)
+        public void DisplayDialogue(DialogueLine dialogueLine)
         {
             if (dialogueLine == null) return;
 
@@ -41,27 +41,9 @@ namespace MagicWords
             avatarImage.sprite = null;
 
             // get new avatar image from URL
+            AvatarData avatar = MagicWordsGameManager.GetAvatar(dialogueLine.name);
             if (avatar == null) return;
-            StartCoroutine(DownloadAvatar(avatar.url));
-        }
-
-        IEnumerator DownloadAvatar(string avatarUrl)
-        {
-            using (UnityWebRequest webRequest = UnityWebRequestTexture.GetTexture(avatarUrl))
-            {
-                // Request and wait for the desired page.
-                yield return webRequest.SendWebRequest();
-
-                if (webRequest.result != UnityWebRequest.Result.Success)
-                {
-                    Debug.Log(": Error: " + webRequest.error);
-                    yield break;
-                }
-
-                Texture2D texture = ((DownloadHandlerTexture)webRequest.downloadHandler).texture;
-                Sprite avatarSprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
-                avatarImage.sprite = avatarSprite;
-            }
+            avatarImage.sprite = avatar.sprite;
         }
     }
 }

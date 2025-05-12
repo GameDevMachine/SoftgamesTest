@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace MagicWords
 {
@@ -15,6 +16,8 @@ namespace MagicWords
         public string name;
         public string url;
         public string position;
+
+        public Sprite sprite; // filled at runtime
     }
 
     [System.Serializable]

@@ -17,7 +17,7 @@ namespace AceOfShadows
             StartCoroutine(MoveCoroutine(position, layer));
         }
 
-        // using coroutine for simplicity, as this is a non-dynamic movement
+        // Using coroutine for simplicity, as this is a non-interruptable movement
         IEnumerator MoveCoroutine(Vector3 position, int layer)
         {
             Vector3 startPosition = transform.position;
@@ -29,8 +29,8 @@ namespace AceOfShadows
             while (timer < moveTime)
             {
                 timer += Time.deltaTime;
-                transform.position = Vector3.Lerp(startPosition, position, timer / moveTime); // TODO: Smooth damping
-                //spriteRenderer.sortingOrder = (int)Mathf.Round(Mathf.Lerp(startLayer, (float)layer, timer / moveTime)); // this lerps the layer through the stacks during movement which isnt ideal.
+                transform.position = Vector3.Lerp(startPosition, position, Mathf.SmoothStep(0, 1, timer / moveTime)); // lerp with smooth easing
+                //spriteRenderer.sortingOrder = Mathf.Lerp(startLayer, (float)layer, timer / moveTime); // this lerps the layer through the stacks during movement which isnt ideal.
                 yield return null;
             }
 

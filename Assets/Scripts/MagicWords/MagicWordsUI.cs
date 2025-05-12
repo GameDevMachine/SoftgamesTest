@@ -36,19 +36,20 @@ namespace MagicWords
             SceneManager.LoadScene("MainMenu");
         }
 
-        static public void DisplayDialogue(DialogueLine dialogueLine, AvatarData avatar)
+        static public void DisplayDialogue(DialogueLine dialogueLine)
         {
             instance.ResetUI();
             if (dialogueLine == null) return;
 
             // Setup speaker
+            AvatarData avatar = MagicWordsGameManager.GetAvatar(dialogueLine.name);
             if (avatar == null || avatar.position == "left")
             {
-                instance.leftSpeaker.DisplayDialogue(dialogueLine, avatar);
+                instance.leftSpeaker.DisplayDialogue(dialogueLine);
             }
             else
             {
-                instance.rightSpeaker.DisplayDialogue(dialogueLine, avatar);
+                instance.rightSpeaker.DisplayDialogue(dialogueLine);
             }
         }
     }

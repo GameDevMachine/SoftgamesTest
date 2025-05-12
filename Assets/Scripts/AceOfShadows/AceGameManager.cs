@@ -64,7 +64,6 @@ namespace AceOfShadows
         }
 
         // Static interface
-
         public static float GetCardMoveSpeed()
         {
             if (instance == null) return 1;
