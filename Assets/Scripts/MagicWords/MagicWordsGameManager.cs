@@ -22,6 +22,18 @@ namespace MagicWords
             DisplayDialogue();
         }
 
+        private void Update()
+        {
+            if (dialogueData == null) return;
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                Debug.Log("Mouse Clicked");
+                dialogueIndex++;
+                DisplayDialogue();
+            }
+        }
+
         private void DisplayDialogue()
         {
             if (dialogueData == null) return;
@@ -45,11 +57,10 @@ namespace MagicWords
                     Debug.Log(": Error: " + webRequest.error);
                     yield break;
                 }
-                else
-                { 
-                    dialogueData = JsonUtility.FromJson<DialogueData>(webRequest.downloadHandler.text);
-                    SetupGame();
-                }
+               
+                dialogueData = JsonUtility.FromJson<DialogueData>(webRequest.downloadHandler.text);
+                SetupGame();
+                
             }
         }
     }
