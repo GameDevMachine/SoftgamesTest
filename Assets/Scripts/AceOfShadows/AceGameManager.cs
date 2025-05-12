@@ -9,6 +9,7 @@ namespace AceOfShadows
         [SerializeField] private List<CardStack> cardStacks = new List<CardStack>();
         [SerializeField] private int numberOfCards = 144;
         [SerializeField] private float cardDealTime = 1;
+        [SerializeField] private float cardMoveSpeed = 1;
 
         private static AceGameManager instance; // singleton
 
@@ -58,7 +59,16 @@ namespace AceOfShadows
 
         private void DealCard()
         {
-            cardStacks[0].MoveTopCardToStack(cardStacks[1]);
+            int targetStackIndex = Random.Range(1, cardStacks.Count);
+            cardStacks[0].MoveTopCardToStack(cardStacks[targetStackIndex]);
+        }
+
+        // Static interface
+
+        public static float GetCardMoveSpeed()
+        {
+            if (instance == null) return 1;
+            return instance.cardMoveSpeed;
         }
     }
 }
