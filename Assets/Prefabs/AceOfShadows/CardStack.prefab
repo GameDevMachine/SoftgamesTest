@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3faf11fc7e6ee0745bfaa872c95fb85d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  offset: {x: 0.01, y: 0.01, z: 0}
