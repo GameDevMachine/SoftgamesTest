@@ -34,7 +34,7 @@ namespace AceOfShadows
             if (cardStacks[0].GetCardCount() == 0)
             {
                 // game finished
-
+                AceGameUI.ShowGameFinishedUI();
                 return;
             }
 
