@@ -22,12 +22,12 @@ The MagicWordsGameManager performs the web requests and controls the dialog flow
 
 This scene shows a fire particle system VFX. The three buttons on the UI control triggers on an Animator Controller which perform transitions in the state graph to play different animations to change the colour of the flame.
 
-There is no Manager component here, it simply calls the required functions from the UI componant.
+There is no Manager component here, it simply calls the required functions on the UI componant.
 
 
 ## If I had more time
 
-There are many things I would add and improve if I had a little more time to spend on it. Functionality was prioritised to meet the task spec, with a small time for adding some downloaded textures and images for a small amoiunt of polish.
+There are many things I would add and improve if I had a little more time to spend on it. Functionality was prioritised to meet the task spec, with only a small time for adding basic downloaded textures and images for polish.
 
 **Better scene management and loading** - Async loading, loading screen, simple transition (fade) for enter/exit scenes
 
