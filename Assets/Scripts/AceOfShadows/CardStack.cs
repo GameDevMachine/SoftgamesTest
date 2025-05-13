@@ -10,6 +10,11 @@ namespace AceOfShadows
         [SerializeField] private Vector3 offset = new Vector3(5, 5, 1);
         List<Card> cards = new List<Card>();
 
+        private void Start()
+        {
+            UpdateCardStackUI();
+        }
+
         // instantly adds a card to this stack
         public void AddCard(Card card)
         {

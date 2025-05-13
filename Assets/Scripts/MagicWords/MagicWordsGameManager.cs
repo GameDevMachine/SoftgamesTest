@@ -16,6 +16,7 @@ namespace MagicWords
 
         private DialogueData dialogueData;
         private int dialogueIndex = 0;
+        private bool initDone = false;
 
         private void Awake()
         {
@@ -36,6 +37,7 @@ namespace MagicWords
         private void Update()
         {
             if (dialogueData == null) return;
+            if (!initDone) return;
 
             if (Input.GetMouseButtonUp(0))
             {
@@ -107,6 +109,7 @@ namespace MagicWords
             }
 
             // Display the first dialogue line
+            initDone = true;
             DisplayDialogue();
         }
     }
