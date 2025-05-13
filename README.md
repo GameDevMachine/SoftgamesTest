@@ -41,4 +41,6 @@ There are many things I would add and improve if I had a little more time to spe
 
 **Phoenix Flame** - Given time I would do some shader work for a much better fire effect than just a simple particle system one
 
+**Animations and Sounds** - I would love to have added animations for buttons, scene entry/exit, speech bubbles and avatars appear/disappear, and some basic audio to bing it more to life.
+
 Thank you for reading, I hope you enjoy this little web app!
